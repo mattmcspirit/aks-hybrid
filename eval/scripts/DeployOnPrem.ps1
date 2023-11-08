@@ -15,7 +15,7 @@ $msiArgs = @("/i", "C:\WAC\WindowsAdminCenter.msi", "/qn", "/L*v", "log.txt", "S
 Start-Process msiexec.exe -Wait -ArgumentList $msiArgs
 
 # Download the AKSHybrid DSC files, and unzip them to C:\AKSHybridHOST, then copy the PS modules to the main PS modules folder
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/mattmcspirit/aks-hybrid/blob/main/eval/dsc/akshybridhost.zip' -OutFile 'C:\akshybridhost.zip' -UseBasicParsing
+Invoke-WebRequest -Uri 'https://github.com/mattmcspirit/aks-hybrid/raw/main/eval/dsc/akshybridhost.zip' -OutFile 'C:\akshybridhost.zip' -UseBasicParsing
 Expand-Archive -Path C:\akshybridhost.zip -DestinationPath C:\AksHybridHost
 Get-ChildItem -Path C:\AksHybridHost -Directory | Copy-Item -Destination "$env:ProgramFiles\WindowsPowerShell\Modules" -Recurse
 
